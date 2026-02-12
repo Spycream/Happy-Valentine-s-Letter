@@ -1,0 +1,264 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><Happy Valentine's Darling<style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #fff0f5;
+      background-image: repeating-radial-gradient(circle at 10% 20%, #ffb6c1 0, #ffb6c1 10px, transparent 10px, transparent 40px),
+                        repeating-radial-gradient(circle at 80% 30%, #ff69b4 0, #ff69b4 8px, transparent 8px, transparent 35px);
+      color: #800020; /* maroon */
+    }
+    header {
+      background: rgba(255, 182, 193, 0.9);
+      color: #800020;
+      padding: 2.5rem 1rem;
+      text-align: center;
+    }
+    nav {
+      background: #800020;
+      padding: 0.5rem;
+      text-align: center;
+    }
+    nav a {
+      color: #ffc0cb; /* pink */
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    section {
+      padding: 2rem 1rem;
+      max-width: 900px;
+      margin: auto;
+    }
+    .card {
+      background: rgba(255, 240, 245, 0.95);
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 6px 15px rgba(128,0,32,0.25);
+      margin-bottom: 1.5rem;
+      color: #c71585; /* deep pink */
+    }
+    h1, h2 {
+      color: #c71585;
+    }
+    footer {
+      background: #800020;
+      color: #ffc0cb;
+      text-align: center;
+      padding: 1rem;
+    }/* Floating Hearts */
+.heart {
+  position: fixed;
+  bottom: -20px;
+  font-size: 20px;
+  animation: floatUp 6s linear infinite;
+  opacity: 0.8;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0) scale(1); opacity: 0.9; }
+  100% { transform: translateY(-100vh) scale(1.5); opacity: 0; }
+}
+
+.surprise-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  border-radius: 25px;
+  border: none;
+  background-color: #800020;
+  color: #ffc0cb;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.surprise-btn:hover {
+  background-color: #c71585;
+  color: white;
+}
+
+#secretMessage {
+  display: none;
+  margin-top: 20px;
+  font-weight: bold;
+  color: #800020;
+  min-height: 1.5em;
+}
+.cursor {
+  display: inline-block;
+  margin-left: 2px;
+  animation: blink 1s infinite;
+}
+@keyframes blink { 0%, 50%, 100% { opacity: 1; } 25%, 75% { opacity: 0; } }
+
+/* Burst Hearts */
+.burst-heart {
+  position: fixed;
+  font-size: 22px;
+  pointer-events: none;
+  animation: burst 900ms ease-out forwards;
+}
+
+@keyframes burst {
+  0% { transform: translate(0,0) scale(0.8); opacity: 1; }
+  100% { transform: translate(var(--x), var(--y)) scale(1.6); opacity: 0; }
+}
+
+  </style>
+</head>
+<body>  <header>
+    <h1>Happy Valentine’s Day 💖</h1>
+    <p>A website made with love, just for you</p>
+  </header>  <nav>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>  <section id="about">
+    <div class="card">
+      <h2>Happy Valentine’s 💖</h2>
+      <p>
+        Happy Valentine’s Darling, of course ikaw lang makaka receive nito noh. 
+        Ginawa ko tong site especially for you only.
+      </p>
+      <p>
+        I just wanted to say na <strong>i love you so so so much</strong>. 
+        Thank you for holding on to me for so long. Thank you for all the sacrifices 
+        you made for us both.
+      </p>
+      <p>
+        I love you with my deepest heart and I will continue loving you on. 
+        Always remember na <strong>love na love ka ni Angelo (Me 😃)</strong>.
+      </p>
+      <p>
+        Hinding hindi kita iiwan mag isa baby. Always lean on to me when life gets hard, oke? 
+        Andito ako lagi para sayo baby.
+      </p>
+      <p style="margin-top:2rem; font-weight:bold; color:#800020;">
+        — Yours Truly,<br />
+        Angelo 💕
+        <br /><br />
+        <button class="surprise-btn" onclick="showMessage()">Click Me 💖</button>
+        <div id="secretMessage" data-text="Surprise! I will choose you over and over again. Every single day. 💘"></div>
+        <span class="cursor" id="cursor">|</span>
+        <audio id="bgMusic" loop>
+          <source src="My love mine all mine - Mitski.mp3" type="audio/mpeg" />
+        </audio>
+        <audio id="bgMusic" loop>
+          <source src="My love mine all mine - Mitski.mp3" type="audio/mpeg" />
+        </audio>
+      </p>
+    </div>
+  </section>  <section id="projects">
+    <div class="card">
+      <h2>Why I’m Grateful for You</h2>
+      <ul>
+        <li>Your patience</li>
+        <li>Your love and understanding</li>
+        <li>Your sacrifices for us</li>
+        <li>Being my safe place</li>
+      </ul>
+    </div>
+  </section>  <section id="contact">
+    <div class="card">
+      <h2>Always Remember</h2>
+      <p>You are deeply loved.</p>
+      <p>You are never alone.</p>
+      <p>I’m always here for you. 💗</p>
+    </div>
+  </section>  <footer>
+    <p>© 2026 My Website. All rights reserved.</p>
+  </footer>  <!-- Floating Hearts Script -->  <script>
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerHTML = "💗";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+      document.body.appendChild(heart);
+      setTimeout(() => {
+        heart.remove();
+      }, 6000);
+    }
+
+    setInterval(createHeart, 500);
+
+    function showMessage() {
+      const msg = document.getElementById("secretMessage");
+      const cursor = document.getElementById("cursor");
+      msg.style.display = "block";
+      cursor.style.display = "inline-block";
+
+      // Play background music on interaction (mobile-friendly)
+      const music = document.getElementById("bgMusic");
+      if (music && music.paused) {
+        music.volume = 0.6;
+        music.play().catch(()=>{});
+      }
+
+      // Typewriter effect
+      typeWriter(msg, cursor);
+
+      // Heart explosion
+      explodeHearts(window.innerWidth / 2, window.innerHeight / 2);
+    }
+
+    function typeWriter(el, cursor) {
+      const text = el.getAttribute('data-text');
+      el.textContent = '';
+      let i = 0;
+      const speed = 45;
+      const timer = setInterval(() => {
+        if (i < text.length) {
+          el.textContent += text.charAt(i);
+          i++;
+        } else {
+          clearInterval(timer);
+          cursor.style.display = 'none';
+        }
+      }, speed);
+    }
+
+    function explodeHearts(x, y) {
+      const count = 24;
+      for (let i = 0; i < count; i++) {
+        const h = document.createElement('div');
+        h.className = 'burst-heart';
+        h.textContent = '💖';
+        const angle = Math.random() * Math.PI * 2;
+        const distance = Math.random() * 120 + 40;
+        h.style.left = x + 'px';
+        h.style.top = y + 'px';
+        h.style.setProperty('--x', Math.cos(angle) * distance + 'px');
+        h.style.setProperty('--y', Math.sin(angle) * distance + 'px');
+        document.body.appendChild(h);
+        setTimeout(()=>h.remove(), 900);
+      }
+    });
+      }
+
+      // Heart explosion
+      explodeHearts(window.innerWidth / 2, window.innerHeight / 2);
+    }
+
+    function explodeHearts(x, y) {
+      const count = 24;
+      for (let i = 0; i < count; i++) {
+        const h = document.createElement('div');
+        h.className = 'burst-heart';
+        h.textContent = '💖';
+        const angle = Math.random() * Math.PI * 2;
+        const distance = Math.random() * 120 + 40;
+        h.style.left = x + 'px';
+        h.style.top = y + 'px';
+        h.style.setProperty('--x', Math.cos(angle) * distance + 'px');
+        h.style.setProperty('--y', Math.sin(angle) * distance + 'px');
+        document.body.appendChild(h);
+        setTimeout(()=>h.remove(), 900);
+      }
+    }
+  </script></body>
+</html>
